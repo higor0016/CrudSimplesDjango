@@ -37,3 +37,11 @@ def editar_calcados(request, id):
     else:
         form = FormCadProduto(instance=calcado)
     return render(request, 'static/pages/calcados-editar.html', {'form':form})
+
+#VIEW DE REMOÇÃO DE ITEM DA TABELA
+def remover_calcado(request, id):
+    calcado = get_object_or_404(Calcado, id=id)
+    calcado.delete()
+    return redirect('listar-calcados')  
+    
+    
